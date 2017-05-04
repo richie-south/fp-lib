@@ -1,0 +1,26 @@
+{
+  "name": "fp-lib",
+  "version": "0.0.1",
+  "description": "Super simple functional programming library",
+  "main": "./src/app.js",
+  "scripts": {
+    "test": "mocha test",
+    "start": "node ./src/index.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/richie-south/fp-lib.git"
+  },
+  "author": "richard söderman",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/richie-south/fp-lib/issues"
+  },
+  "homepage": "https://github.com/richie-south/fp-lib#readme",
+  "devDependencies": {
+    "chai": "^3.5.0",
+    "eslint": "^3.19.0",
+    "mocha": "^3.3.0"
+  },
+  "dependencies": {}
+}
