@@ -10,8 +10,8 @@
  * const add = (a, b) => a + b
  * const addC = curry(add)
  * 
- * add(1)(1)
- * add(1, 1)
+ * addC(1)(1)
+ * addC(1, 1)
  */
 const curry = (fn, curryArgs = []) => (...args) => {
   const concatArgs = [...curryArgs, ...args]
