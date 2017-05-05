@@ -1,5 +1,5 @@
 {
-  "name": "fp-lib",
+  "name": "plura",
   "version": "0.0.1",
   "description": "Super simple functional programming library",
   "main": "./src/index.js",
