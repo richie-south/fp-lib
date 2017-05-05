@@ -11,6 +11,14 @@
     "type": "git",
     "url": "git+https://github.com/richie-south/fp-lib.git"
   },
+  "keywords": [
+    "curry",
+    "compose",
+    "map",
+    "filter",
+    "reduce",
+    "functional"
+  ],
   "author": "richard söderman",
   "license": "ISC",
   "bugs": {
