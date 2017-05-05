@@ -1,5 +1,5 @@
 /**
- * Simple curry
+ * Simple compose
  * @param {Function} fn - first function to evaluate
  * @param {Array} fns - rest of functions
  * @return {Function} _ - function to take rest of args
