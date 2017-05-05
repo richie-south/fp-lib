@@ -29,10 +29,10 @@ const walkObject = curry((_fn, fn, object) => {
     
     const key = keys[index]
     const value = object[keys[index]]
-    const evaluated = fn(value)
+    const evaluatedValue = fn(value)
 
     return walk(
-      _fn(evaluated, value, key, result),
+      _fn(evaluatedValue, value, key, result),
       index + 1
     )
   }

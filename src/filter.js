@@ -18,21 +18,21 @@ const objectFilter = walkObject(
 )
 
 /**
- * Simple map
+ * Simple filter
  * @param {Function} fn - function to change values
- * @param {Array||Object||string} collection - somthing to map over
- * @return {Array||Object||string} _ - collection applyed with fn
+ * @param {Array||Object||string} collection - somthing to filter over
+ * @return {Array||Object||string} _ - collection filtered with fn
  * @example 
  * 
- * const addOne = a => a + 1
- * const array = [1, 2, 3, 4]
- * const result = map(addOne, array)
+ * const largerThanOne = a => a > 1
+ * const array = [1, 2, 3, 4, 0]
+ * const result = filter(addOne, array)
  */
-const map = curry((fn, collection) =>
+const filter = curry((fn, collection) =>
   isArray(collection) || 
   isString(collection) ?
     arrayFilter(fn, collection) : 
     objectFilter(fn, collection)
 )
 
-module.exports = map
+module.exports = filter
