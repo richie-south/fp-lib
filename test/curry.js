@@ -5,7 +5,7 @@ const assert = chai.assert
 const curry = require('../src/curry')
 
 const add = (a, b, c) => a + b + c
-const simple = (a) => a
+const simple = a => a
 
 describe('curry', () => {
 
