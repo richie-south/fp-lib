@@ -4,9 +4,9 @@ const assert = chai.assert
 
 const compose = require('../src/compose')
 
-const timeTwo = (a) => a * 2
-const minusOne = (a) => a - 1
-const addTwo = (a) => a + 2
+const timeTwo = a => a * 2
+const minusOne = a => a - 1
+const addTwo = a => a + 2
 
 describe('compose', () => {
 
@@ -17,8 +17,8 @@ describe('compose', () => {
   })
 
   it('should run left to right', () => {
-    const expected = 1
-    const result = compose(addTwo, minusOne)(0)
+    const expected = 2
+    const result = compose(timeTwo, minusOne)(2)
 
     expect(result).to.equal(expected)
   })
