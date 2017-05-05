@@ -6,7 +6,8 @@ const { isArray, isString } = require('./isType')
  * Simple array map
  */
 const arrayMap = walkArray(
-  (r, e, c) => c.concat(r)
+  (fn, element, result, index) => 
+    result.concat(fn(element, index))
 )
 
 
@@ -14,7 +15,8 @@ const arrayMap = walkArray(
  * Simple object map
  */
 const objectMap = walkObject(
-  (r, v, k, c) => Object.assign({}, c, { [k]: r })
+  (fn, value, key, result, index) => 
+    Object.assign({}, result, { [key]: fn(value, index) })
 )
 
 /**

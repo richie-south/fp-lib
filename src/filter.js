@@ -6,7 +6,8 @@ const { isArray, isString } = require('./isType')
  * Simple array filter
  */
 const arrayFilter = walkArray(
-  (r, e, c) => r ? c.concat(e) : c
+  (fn, element, result, index) => 
+    fn(element, index) ? result.concat(element) : result
 )
 
 
@@ -14,7 +15,8 @@ const arrayFilter = walkArray(
  * Simple object filter
  */
 const objectFilter = walkObject(
-  (r, v, k, c) => r ? Object.assign({}, c, {[k]: v}) : c
+  (fn, value, key, result, index) => 
+    fn(value, index) ? Object.assign({}, result, {[key]: value}) : result
 )
 
 /**
