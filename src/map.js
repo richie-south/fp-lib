@@ -1,69 +1,21 @@
 const curry = require('./curry')
+const { walkArray, walkObject } = require('./utils/walk')
 const { isArray, isString } = require('./isType')
 
 /**
  * Simple array map
- * @param {Function} fn - function to change values
- * @param {Array} array - array to map over
- * @return {Array} _ - array values applyed with fn
- * @example 
- * 
- * const addOne = a => a + 1
- * const array = [1, 2, 3, 4]
- * const result = arrayMap(addOne, array)
  */
-const arrayMap = curry((fn, array) => {
-  const arrayLength = array.length
+const arrayMap = walkArray(
+  (r, e, c) => c.concat(r)
+)
 
-  const _map = (result = [], index = 0) => {
-    if(arrayLength <= index){
-      return result
-    }
-
-    const element = array[index]
-
-    return _map(
-      result.concat(fn(element)), 
-      index + 1
-    )
-  }
-
-  return _map()
-})
 
 /**
  * Simple object map
- * @param {Function} fn - function to change values
- * @param {Object} object - object to map over
- * @return {Object} _ - object values applyed with fn
- * @example 
- * 
- * const addOne = a => a + 1
- * const object = { x: 1, y: 2 }
- * const result = objectMap(addOne, object)
  */
-const objectMap = curry((fn, object) => {
-  const keys = Object.keys(object)
-  const keysLength = keys.length
-
-  const _map = (result = {}, index = 0) => {
-    if(keysLength <= index){
-      return result
-    }
-    
-    const key = keys[index]
-    const value = object[keys[index]]
-
-    return _map(
-      Object.assign({}, result, {
-        [key]: fn(value),
-      }),
-      index + 1
-    )
-  }
-
-  return _map()
-})
+const objectMap = walkObject(
+  (r, v, k, c) => Object.assign({}, c, { [k]: r })
+)
 
 /**
  * Simple map
