@@ -1,5 +1,12 @@
 const curry = require('../curry')
 
+/**
+ * Simple array walk
+ * @param {Function} _fn - returns new result or old
+ * @param {Function} fn - function to change values
+ * @param {Array||string} collection - somthing to fn over
+ * @return {Array||string} _ - collection change by fn
+ */
 const walkArray = curry((_fn, fn, array) => {
   const arrayLength = array.length
 
@@ -18,6 +25,13 @@ const walkArray = curry((_fn, fn, array) => {
   return walk()
 })
 
+/**
+ * Simple object walk
+ * @param {Function} _fn - returns new result or old
+ * @param {Function} fn - function to change values
+ * @param {Object} collection - somthing to fn over
+ * @return {Object} _ - collection change by fn
+ */
 const walkObject = curry((_fn, fn, object) => {
   const keys = Object.keys(object)
   const keysLength = keys.length
