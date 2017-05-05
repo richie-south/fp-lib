@@ -1,3 +1,5 @@
+const reduce = require('./reduce')
+
 /**
  * Simple compose
  * @param {Function} fn - first function to evaluate
@@ -12,8 +14,7 @@
  * const result = _compose(addTwo, minusOne)(2)
  */
 const _compose = (fn, ...fns) => (...args) => 
-  fns
-    .reduce((g, f) => f(g), fn(...args))
+  reduce((g, f) => f(g), fn(...args), fns)
 
 /**
  * @param {Array} fns - array of functions
