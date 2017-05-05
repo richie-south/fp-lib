@@ -7,7 +7,7 @@ Super simple functional programming library
 # Installation
 
 ```
-npm install laiva --save
+npm install plura --save
 ```
 
 # Usage
