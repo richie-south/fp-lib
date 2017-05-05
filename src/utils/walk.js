@@ -5,9 +5,10 @@ const curry = require('../curry')
  * @param {Function} _fn - returns new result or old
  * @param {Function} fn - function to change values
  * @param {Array||string} collection - somthing to fn over
+ * @param {Any} initial - initial value for fn
  * @return {Array||string} _ - collection change by fn
  */
-const walkArray = curry((_fn, fn, array) => {
+const walkArray = curry((_fn, fn, array, initial = []) => {
   const arrayLength = array.length
 
   const walk = (result = [], index = 0) => {
@@ -16,13 +17,13 @@ const walkArray = curry((_fn, fn, array) => {
     }
 
     const element = array[index]
-
+    
     return walk(
-      _fn(fn(element), element, result), 
+      _fn(fn, element, result, index), 
       index + 1
     )
   }
-  return walk()
+  return walk(initial)
 })
 
 /**
@@ -30,9 +31,10 @@ const walkArray = curry((_fn, fn, array) => {
  * @param {Function} _fn - returns new result or old
  * @param {Function} fn - function to change values
  * @param {Object} collection - somthing to fn over
+ * @param {Any} initial - initial value for fn
  * @return {Object} _ - collection change by fn
  */
-const walkObject = curry((_fn, fn, object) => {
+const walkObject = curry((_fn, fn, object, initial = {}) => {
   const keys = Object.keys(object)
   const keysLength = keys.length
 
@@ -43,15 +45,14 @@ const walkObject = curry((_fn, fn, object) => {
     
     const key = keys[index]
     const value = object[keys[index]]
-    const evaluatedValue = fn(value)
 
     return walk(
-      _fn(evaluatedValue, value, key, result),
+      _fn(fn, value, key, result, index),
       index + 1
     )
   }
 
-  return walk()
+  return walk(initial)
 })
 
 module.exports = {
