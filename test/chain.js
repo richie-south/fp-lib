@@ -5,6 +5,7 @@ const assert = chai.assert
 const chain = require('../src/chain')
 
 const duplicate = n => [n, n]
+const remove = () => []
 
 describe('chain', () => {
 
@@ -13,6 +14,14 @@ describe('chain', () => {
     const testArray = [1, 2, 3]
     
     const result = chain(duplicate, testArray)
+
+    expect(result).to.deep.equal(expected)
+  })
+
+  it('should remove all items in array', () => {
+    const expected = []
+    const testArray = [1, 2, 3]
+    const result = chain(remove, testArray)
 
     expect(result).to.deep.equal(expected)
   })
