@@ -19,6 +19,8 @@ npm install plura --save
 * [map](#map)
 * [filter](#filter)
 * [reduce](#reduce)
+* [chain](#chain)
+* [always](#always)
 * [isArray](#isarray)
 * [isObject](#isobject)
 * [isString](#isstring)
@@ -125,6 +127,42 @@ reduce(merge, 0, [2, 3, 6]) // >> 9
 ### Return value
 
 Any
+
+## chain
+
+### Syntax  
+
+```javascript
+chain(duplicate, [1, 2]) // >> [1, 1, 2, 2]
+```
+
+### Parameters
+
+- fn
+  - function to change values
+- array 
+  - array to change
+
+### Return value
+
+Array
+
+## always
+
+### Syntax  
+
+```javascript
+const getTen = always(10) // >> function
+getTen() // >> 10
+```
+
+### Parameters
+
+- value
+
+### Return value
+
+Function and if executed get value
 
 ## isArray
 
