@@ -128,9 +128,11 @@ reduce(merge, 0, [2, 3, 6]) // >> 9
 
 Any
 
-## chain
+## chain  
 
-### Syntax  
+`Aka: flatMap`  
+
+### Syntax    
 
 ```javascript
 chain(duplicate, [1, 2]) // >> [1, 1, 2, 2]
