@@ -1,5 +1,13 @@
-const reduce = require('./reduce')
 const curry = require('./curry')
+const { walkArray } = require('./utils/walk')
+
+/**
+ * Simple array chain
+ */
+const arrayChain = walkArray(
+  (fn, element, result, index) => 
+    result.concat(fn(element, index))
+)
 
 /**
  * Simple chain
@@ -12,12 +20,8 @@ const curry = require('./curry')
  * const array = [1, 2]
  * const reuslt = chain(duplicate, array)
  */
-const chain = curry((fn, array) => 
-  reduce(
-    (prev, x) => prev.concat(fn(x)),
-    [],
-    array
-  )
+const chain = curry((fn, collection) => 
+  arrayChain(fn, collection)
 )
 
 module.exports = chain
