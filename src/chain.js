@@ -4,9 +4,8 @@ const { walkArray } = require('./utils/walk')
 /**
  * Simple array chain
  */
-const arrayChain = walkArray(
-  (fn, element, result, index) => 
-    result.concat(fn(element, index))
+const arrayChain = walkArray((fn, element, result, index) =>
+  [result.concat(fn(element, index)), false]
 )
 
 /**
@@ -20,8 +19,6 @@ const arrayChain = walkArray(
  * const array = [1, 2]
  * const reuslt = chain(duplicate, array)
  */
-const chain = curry((fn, collection) => 
-  arrayChain(fn, collection)
-)
+const chain = curry((fn, collection) => arrayChain(fn, collection, []))
 
 module.exports = chain

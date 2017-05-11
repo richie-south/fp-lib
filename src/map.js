@@ -6,17 +6,16 @@ const { isArray, isString } = require('./isType')
  * Simple array map
  */
 const arrayMap = walkArray(
-  (fn, element, result, index) => 
-    result.concat(fn(element, index))
+  (fn, element, result, index) =>
+    [result.concat(fn(element, index)), false]
 )
-
 
 /**
  * Simple object map
  */
 const objectMap = walkObject(
-  (fn, value, key, result, index) => 
-    Object.assign({}, result, { [key]: fn(value, index) })
+  (fn, value, key, result, index) =>
+    [Object.assign({}, result, { [key]: fn(value, index) }), false]
 )
 
 /**
@@ -30,11 +29,11 @@ const objectMap = walkObject(
  * const array = [1, 2, 3, 4]
  * const result = map(addOne, array)
  */
-const map = curry((fn, collection) =>
-  isArray(collection) || 
-  isString(collection) ?
-    arrayMap(fn, collection) : 
-    objectMap(fn, collection)
+const map = curry(
+  (fn, collection) =>
+    isArray(collection) || isString(collection)
+      ? arrayMap(fn, collection, [])
+      : objectMap(fn, collection, {})
 )
 
 module.exports = map

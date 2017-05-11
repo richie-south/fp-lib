@@ -6,16 +6,16 @@ const { walkArray, walkObject } = require('./utils/walk')
  * Simple array reduce
  */
 const arrayReduce = walkArray(
-  (fn, element, result, index) => 
-    fn(result, element, index)
+  (fn, element, result, index) =>
+    [fn(result, element, index), false]
 )
 
 /**
  * Simple object reduce
  */
 const objectReduce = walkObject(
-  (fn, value, key, result, index) => 
-    fn(result, value, index)
+  (fn, value, key, result, index) =>
+    [fn(result, value, index), false]
 )
 
 /**
@@ -31,9 +31,9 @@ const objectReduce = walkObject(
  * const result = reduce(merge, 0, array)
  */
 const reduce = curry((fn, initialValue, collection) =>
-  isArray(collection) || 
-  isString(collection) ?
-    arrayReduce(fn, collection, initialValue) : 
+  isArray(collection) ||
+    isString(collection) ?
+    arrayReduce(fn, collection, initialValue) :
     objectReduce(fn, collection, initialValue)
 )
 
