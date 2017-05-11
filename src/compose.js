@@ -13,7 +13,7 @@ const reduce = require('./reduce')
  * const minusOne = (a) => a - 1
  * const result = _compose(addTwo, minusOne)(2)
  */
-const _compose = (fn, ...fns) => (...args) => 
+const _compose = (fn, ...fns) => (...args) =>
   reduce((g, f) => f(g), fn(...args), fns)
 
 /**
@@ -25,8 +25,12 @@ const _compose = (fn, ...fns) => (...args) =>
  * const minusOne = (a) => a - 1
  * const result = compose(addTwo, minusOne)(2)
  */
-const compose = (...fns) => 
+const compose = (...fns) =>
   _compose(...fns.reverse())
 
-module.exports = compose
+const pipe = (...fns) =>
+  _compose(...fns)
 
+
+module.exports = compose
+module.exports.pipe = pipe

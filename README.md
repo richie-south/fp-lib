@@ -17,6 +17,7 @@ Check tests for more usage information
 ## Summary
 
 * [compose](#compose)
+* [pipe](#pipe)
 * [curry](#curry)
 * [map](#map)
 * [filter](#filter)
@@ -37,6 +38,26 @@ Check tests for more usage information
 ```javascript
 const minusOneTimesTo = compose(timeTwo, minusOne)
 minusOneTimesTo(2) // >> 2
+```
+
+### Parameters
+
+- fns
+  - as many functions you want
+- arguments
+  - initial arguments
+
+### Return value
+
+Composed functions
+
+## pipe
+
+### Syntax  
+
+```javascript
+const minusOneTimesTo = pipe(timeTwo, minusOne)
+minusOneTimesTo(2) // >> 3
 ```
 
 ### Parameters
