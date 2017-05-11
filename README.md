@@ -20,6 +20,7 @@ npm install plura --save
 * [filter](#filter)
 * [reduce](#reduce)
 * [chain](#chain)
+* [find](#find)
 * [always](#always)
 * [isArray](#isarray)
 * [isObject](#isobject)
@@ -148,6 +149,28 @@ chain(duplicate, [1, 2]) // >> [1, 1, 2, 2]
 ### Return value
 
 Array
+
+## find  
+
+### Syntax    
+
+```javascript
+find(hasIdOfOne, [{ id: 10 }, { id: 1 }]) // >> { id: 1 }
+```
+
+### Parameters
+
+- fn
+  - function to evaluate values
+- array 
+  - array to find value in
+- initailValue
+  - optional
+  - if find doesn't find anything initialValue will be returned, default: undefined
+
+### Return value
+
+Any, found value
 
 ## always
 
