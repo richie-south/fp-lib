@@ -12,6 +12,8 @@ npm install plura --save
 
 # Usage
 
+Check tests for more usage information
+
 ## Summary
 
 * [compose](#compose)
