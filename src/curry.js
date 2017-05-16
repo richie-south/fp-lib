@@ -16,8 +16,8 @@
 const curry = (fn, curryArgs = []) => (...args) => {
   const concatArgs = [...curryArgs, ...args]
 
-  return fn.length > concatArgs.length ? 
-    curry(fn, concatArgs) : 
+  return fn.length > concatArgs.length ?
+    curry(fn, concatArgs) :
     fn(...concatArgs)
 }
 
