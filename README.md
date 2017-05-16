@@ -16,185 +16,21 @@ Check tests for more usage information
 
 ## Summary
 
-* [compose](#compose)
-* [pipe](#pipe)
-* [curry](#curry)
-* [map](#map)
-* [filter](#filter)
-* [reduce](#reduce)
-* [chain](#chain)
-* [find](#find)
 * [always](#always)
 * [ap](#ap)
+* [chain](#chain)
+* [compose](#compose)
+* [curry](#curry)
+* [filter](#filter)
+* [find](#find)
 * [isArray](#isarray)
+* [isNumber](#isnumber)
 * [isObject](#isobject)
 * [isString](#isstring)
-* [isNumber](#isnumber)
+* [map](#map)
+* [pipe](#pipe)
+* [reduce](#reduce)
 
-
-## compose
-
-### Syntax  
-
-```javascript
-const minusOneTimesTo = compose(timeTwo, minusOne)
-minusOneTimesTo(2) // >> 2
-```
-
-### Parameters
-
-- fns
-  - as many functions you want
-- arguments
-  - initial arguments
-
-### Return value
-
-Composed functions
-
-## pipe
-
-### Syntax  
-
-```javascript
-const minusOneTimesTo = pipe(timeTwo, minusOne)
-minusOneTimesTo(2) // >> 3
-```
-
-### Parameters
-
-- fns
-  - as many functions you want
-- arguments
-  - initial arguments
-
-### Return value
-
-Composed functions
-
-## curry
-
-### Syntax  
-
-```javascript
-const addC = curry(add)
-addC(1, 1, 1) // >> 3
-addC(1)(1)(1) // >> 3
-addC(1)(1, 1) // >> 3
-```
-
-### Parameters
-
-- fn
-  - function you want to curry
-- arguments
-  - as many arguments needed to fulfill fn parameters 
-
-### Return value
-
-Curry:ed function
-
-## map
-
-### Syntax  
-
-```javascript
-map(addOne, [1, 2, 3]) // >> [2, 3, 4]
-```
-
-### Parameters
-
-- fn
-  - function you want to apply to array elements
-- array
-  - array to map over
-
-### Return value
-
-Altred array
-
-## filter
-
-### Syntax  
-
-```javascript
-filter(isEven, [2, 3, 6]) // >> [2]
-```
-
-### Parameters
-
-- fn
-  - function you want to apply to check array elements
-- array
-  - array to filter over
-
-### Return value
-
-Altred array
-
-## reduce
-
-### Syntax  
-
-```javascript
-reduce(merge, 0, [2, 3, 6]) // >> 9
-```
-
-### Parameters
-
-- fn
-  - function you want to apply on array elements
-- initialValue
-  - start value for your reduce
-- array
-  - array to reduce over
-
-### Return value
-
-Any
-
-## chain  
-
-`Aka: flatMap`  
-
-### Syntax    
-
-```javascript
-chain(duplicate, [1, 2]) // >> [1, 1, 2, 2]
-```
-
-### Parameters
-
-- fn
-  - function to change values
-- array 
-  - array to change
-
-### Return value
-
-Array
-
-## find  
-
-### Syntax    
-
-```javascript
-find(hasIdOfOne, [{ id: 10 }, { id: 1 }]) // >> { id: 1 }
-```
-
-### Parameters
-
-- fn
-  - function to evaluate values
-- array 
-  - array to find value in
-- initailValue
-  - optional
-  - if find doesn't find anything initialValue will be returned, default: undefined
-
-### Return value
-
-Any, found value
 
 ## always
 
@@ -232,6 +68,109 @@ ap([addTwo, minusOne], [1, 2, 3]) // >> [3, 4, 5, 0, 1, 2]
 
 Array of applied functions to a array of values
 
+## chain  
+
+`Aka: flatMap`  
+
+### Syntax    
+
+```javascript
+chain(duplicate, [1, 2]) // >> [1, 1, 2, 2]
+```
+
+### Parameters
+
+- fn
+  - function to change values
+- array 
+  - array to change
+
+### Return value
+
+Array
+
+## compose
+
+### Syntax  
+
+```javascript
+const minusOneTimesTo = compose(timeTwo, minusOne)
+minusOneTimesTo(2) // >> 2
+```
+
+### Parameters
+
+- fns
+  - as many functions you want
+- arguments
+  - initial arguments
+
+### Return value
+
+Composed functions
+
+## curry
+
+### Syntax  
+
+```javascript
+const addC = curry(add)
+addC(1, 1, 1) // >> 3
+addC(1)(1)(1) // >> 3
+addC(1)(1, 1) // >> 3
+```
+
+### Parameters
+
+- fn
+  - function you want to curry
+- arguments
+  - as many arguments needed to fulfill fn parameters 
+
+### Return value
+
+Curry:ed function
+
+## filter
+
+### Syntax  
+
+```javascript
+filter(isEven, [2, 3, 6]) // >> [2]
+```
+
+### Parameters
+
+- fn
+  - function you want to apply to check array elements
+- array
+  - array to filter over
+
+### Return value
+
+Altred array
+
+## find  
+
+### Syntax    
+
+```javascript
+find(hasIdOfOne, [{ id: 10 }, { id: 1 }]) // >> { id: 1 }
+```
+
+### Parameters
+
+- fn
+  - function to evaluate values
+- array 
+  - array to find value in
+- initailValue
+  - optional
+  - if find doesn't find anything initialValue will be returned, default: undefined
+
+### Return value
+
+Any, found value
 
 ## isArray
 
@@ -249,6 +188,24 @@ isArray([1, 2]) // >> true
 ### Return value
 
 Boolean
+
+## isNumber
+
+### Syntax  
+
+```javascript
+isNumber(10) // >> true
+```
+
+### Parameters
+
+- any
+  - checks if number or not
+
+### Return value
+
+Boolean
+
 
 ## isObject
 
@@ -284,19 +241,62 @@ isString('abc') // >> true
 
 Boolean
 
-## isNumber
+## map
 
 ### Syntax  
 
 ```javascript
-isNumber(10) // >> true
+map(addOne, [1, 2, 3]) // >> [2, 3, 4]
 ```
 
 ### Parameters
 
-- any
-  - checks if number or not
+- fn
+  - function you want to apply to array elements
+- array
+  - array to map over
 
 ### Return value
 
-Boolean
+Altred array
+
+## pipe
+
+### Syntax  
+
+```javascript
+const minusOneTimesTo = pipe(timeTwo, minusOne)
+minusOneTimesTo(2) // >> 3
+```
+
+### Parameters
+
+- fns
+  - as many functions you want
+- arguments
+  - initial arguments
+
+### Return value
+
+Composed functions
+
+## reduce
+
+### Syntax  
+
+```javascript
+reduce(merge, 0, [2, 3, 6]) // >> 9
+```
+
+### Parameters
+
+- fn
+  - function you want to apply on array elements
+- initialValue
+  - start value for your reduce
+- array
+  - array to reduce over
+
+### Return value
+
+Any
