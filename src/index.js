@@ -7,6 +7,7 @@ const reduce = require('./reduce')
 const chain = require('./chain')
 const find = require('./find')
 const always = require('./always')
+const ap = require('./ap')
 const { isArray, isObject, isString } = require('./isType')
 
 module.exports = {
@@ -19,6 +20,7 @@ module.exports = {
   chain,
   find,
   always,
+  ap,
 
   isArray,
   isObject,
