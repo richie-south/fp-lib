@@ -25,6 +25,7 @@ Check tests for more usage information
 * [chain](#chain)
 * [find](#find)
 * [always](#always)
+* [ap](#ap)
 * [isArray](#isarray)
 * [isObject](#isobject)
 * [isString](#isstring)
@@ -211,6 +212,26 @@ getTen() // >> 10
 ### Return value
 
 Function and if executed get value
+
+## ap
+
+### Syntax  
+
+```javascript
+ap([addTwo, minusOne], [1, 2, 3]) // >> [3, 4, 5, 0, 1, 2]
+```
+
+### Parameters
+
+- fns
+  - array of functions 
+- values
+  - array of values
+
+### Return value
+
+Array of applied functions to a array of values
+
 
 ## isArray
 
