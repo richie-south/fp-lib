@@ -11,18 +11,17 @@ const ap = require('./ap')
 const { isArray, isObject, isString } = require('./isType')
 
 module.exports = {
-  curry,
-  compose,
-  pipe,
-  map,
-  filter,
-  reduce,
-  chain,
-  find,
   always,
   ap,
-
+  chain,
+  compose,
+  curry,
+  filter,
+  find,
   isArray,
   isObject,
   isString,
+  map,
+  pipe,
+  reduce,
 }
