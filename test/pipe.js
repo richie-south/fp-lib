@@ -3,7 +3,7 @@ const expect = chai.expect
 const assert = chai.assert
 
 const pipe = require('../src/compose').pipe
-console.log(pipe)
+
 const timeTwo = a => a * 2
 const minusOne = a => a - 1
 const addTwo = a => a + 2
