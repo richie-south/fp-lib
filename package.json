@@ -1,6 +1,6 @@
 {
   "name": "plura",
-  "version": "0.3.0",
+  "version": "0.4.0",
   "description": "Super simple functional programming library",
   "main": "./src/index.js",
   "scripts": {
@@ -22,7 +22,8 @@
     "chain",
     "flatMap",
     "always",
-    "find"
+    "find",
+    "ap"
   ],
   "author": "richard söderman",
   "license": "ISC",
