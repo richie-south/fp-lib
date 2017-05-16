@@ -4,7 +4,7 @@ const assert = chai.assert
 
 const filter = require('../src/filter')
 
-const largerThanTwo = a => a > 2 
+const largerThanTwo = a => a > 2
 const isA = a => a === 'a'
 
 describe('filter', () => {
@@ -18,7 +18,7 @@ describe('filter', () => {
   })
 
   it('should work with objects', () => {
-    const expected = { y: 5}
+    const expected = { y: 5 }
     const testObject = { x: 1, y: 5 }
     const result = filter(largerThanTwo, testObject)
 
@@ -26,7 +26,7 @@ describe('filter', () => {
   })
 
   it('should work with strings', () => {
-    const expected = [ 'a' ]
+    const expected = ['a']
     const testString = 'abc'
     const result = filter(isA, testString)
 
