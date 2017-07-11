@@ -21,7 +21,7 @@ Check tests for more usage information
 * [chain](#chain)
 * [compose](#compose)
 * [curry](#curry)
-* [curryObject](#curryObject)
+* [curryObject](#curryobject)
 * [filter](#filter)
 * [find](#find)
 * [isArray](#isarray)
