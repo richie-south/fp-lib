@@ -21,6 +21,7 @@ Check tests for more usage information
 * [chain](#chain)
 * [compose](#compose)
 * [curry](#curry)
+* [curryObject](#curryObject)
 * [filter](#filter)
 * [find](#find)
 * [isArray](#isarray)
@@ -122,6 +123,47 @@ addC(1)(1, 1) // >> 3
 
 ### Parameters
 
+- fn
+  - function you want to curry
+- arguments
+  - as many arguments needed to fulfill fn parameters 
+
+### Return value
+
+Curry:ed function
+
+## curryObject
+
+### Syntax  
+
+```javascript
+// with object
+const objectTemplate = {
+  a: '',
+  b: '',
+  c: '',
+}
+const addC = curryObject(objectTemplate, add)
+addC({a: 1, b: 1, c: 1})     // >> 3
+addC({a: 1})({b: 1})({c: 1}) // >> 3
+addC({c: 1})({b: 1, a: 1})   // >> 3
+
+// with array
+const arrayTemplate = [
+  'a',
+  'b',
+  'c',
+]
+const addC = curryObject(arrayTemplate, add)
+addC({a: 1, b: 1, c: 1})     // >> 3
+addC({a: 1})({b: 1})({c: 1}) // >> 3
+addC({c: 1})({b: 1, a: 1})   // >> 3
+```
+
+### Parameters
+
+- template
+  - template of object keys, object|array
 - fn
   - function you want to curry
 - arguments
