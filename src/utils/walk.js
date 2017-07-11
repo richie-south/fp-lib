@@ -2,13 +2,13 @@ const curry = require('../curry')
 
 /**
  * Simple array walk
- * @param {Function} _fn - returns new result or old
- * @param {Function} fn - function to change values
+ * @param {Function} implementorFn - determines core algoritm
+ * @param {Function} userFn - function to change values
  * @param {Array||string} collection - somthing to fn over
  * @param {Any} initial - initial value for fn
  * @return {Array||string} _ - collection change by fn
  */
-const walkArray = curry((_fn, fn, array, initial) => {
+const walkArray = curry((implementorFn, userFn, array, initial) => {
   const arrayLength = array.length
 
   const walk = (result, index = 0) => {
@@ -17,7 +17,7 @@ const walkArray = curry((_fn, fn, array, initial) => {
     }
 
     const element = array[index]
-    const [value, doEarlyreturn] = _fn(fn, element, result, index)
+    const [value, doEarlyreturn] = implementorFn(userFn, element, result, index)
 
     return doEarlyreturn ? value : walk(value, index + 1)
   }
@@ -26,13 +26,13 @@ const walkArray = curry((_fn, fn, array, initial) => {
 
 /**
  * Simple object walk
- * @param {Function} _fn - returns new result or old
- * @param {Function} fn - function to change values
+ * @param {Function} implementorFn - determines core algoritm
+ * @param {Function} userFn - function to change values
  * @param {Object} collection - somthing to fn over
  * @param {Any} initial - initial value for fn
  * @return {Object} _ - collection change by fn
  */
-const walkObject = curry((_fn, fn, object, initial) => {
+const walkObject = curry((implementorFn, userFn, object, initial) => {
   const keys = Object.keys(object)
   const keysLength = keys.length
 
@@ -43,7 +43,7 @@ const walkObject = curry((_fn, fn, object, initial) => {
 
     const key = keys[index]
     const value = object[keys[index]]
-    const [_value, doEarlyreturn] = _fn(fn, value, key, result, index)
+    const [_value, doEarlyreturn] = implementorFn(userFn, value, key, result, index)
 
     return doEarlyreturn ? _value : walk(_value, index + 1)
   }
