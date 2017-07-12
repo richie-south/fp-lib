@@ -1,6 +1,6 @@
 {
   "name": "plura",
-  "version": "0.5.0",
+  "version": "0.6.0",
   "description": "Super simple functional programming library",
   "main": "./src/index.js",
   "scripts": {
@@ -15,6 +15,8 @@
     "curry",
     "curryObject",
     "object curry",
+    "curry destructed",
+    "destructuring",
     "compose",
     "pipe",
     "map",
