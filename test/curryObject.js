@@ -6,6 +6,7 @@ const curryObject = require('../src/curryObject')
 
 const add = (object) => object.a + object.b
 const simple = (object) => object.a + 1
+const complex = (object, a) => object.a + a
 
 const arrayTemplate = [
   'a',
@@ -64,6 +65,13 @@ describe('curryObject', () => {
   it('should work on single param function', () => {
     const expected = 2
     const result = curryObject(simpleTemplate, simple)({a: 1})
+
+    expect(result).to.equal(expected)
+  })
+
+  it('should work with multible params', () => {
+    const expected = 2
+    const result = curryObject(simpleTemplate, complex)({a: 1})(1)
 
     expect(result).to.equal(expected)
   })
