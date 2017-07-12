@@ -21,6 +21,7 @@ Check tests for more usage information
 * [chain](#chain)
 * [compose](#compose)
 * [curry](#curry)
+* [curryDestructed](#currydestructed)
 * [curryObject](#curryobject)
 * [filter](#filter)
 * [find](#find)
@@ -124,6 +125,31 @@ addC(1)(1, 1) // >> 3
 ### Parameters
 
 - fn
+  - function you want to curry
+- arguments
+  - as many arguments needed to fulfill fn parameters 
+
+### Return value
+
+Curry:ed function
+
+## curryDestructed
+
+## Syntax  
+
+```javascript
+// add must have simple destruction! : no rest ... or nested destructions
+const add = ({ a, b, c}) => a + b + c
+
+const addC = curryObject(add)
+addC({a: 1, b: 1, c: 1})     // >> 3
+addC({a: 1})({b: 1})({c: 1}) // >> 3
+addC({c: 1})({b: 1, a: 1})   // >> 3
+
+```
+
+### Parameters
+
   - function you want to curry
 - arguments
   - as many arguments needed to fulfill fn parameters 
