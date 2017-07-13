@@ -9,6 +9,7 @@ const find = require('./find')
 const always = require('./always')
 const ap = require('./ap')
 const curryObject = require('./curryObject')
+const curryDestructed = require('./curryDestructed')
 const { isArray, isObject, isString } = require('./isType')
 
 module.exports = {
@@ -26,4 +27,5 @@ module.exports = {
   pipe,
   reduce,
   curryObject,
+  curryDestructed,
 }
