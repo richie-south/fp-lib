@@ -1,6 +1,6 @@
 {
   "name": "plura",
-  "version": "0.6.0",
+  "version": "0.6.1",
   "description": "Super simple functional programming library",
   "main": "./src/index.js",
   "scripts": {
