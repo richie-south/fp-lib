@@ -1,6 +1,6 @@
 # Plura
 
-[![npm version](https://badge.fury.io/js/plura.svg)](https://badge.fury.io/js/plura)   
+[![npm version](https://badge.fury.io/js/plura.svg)](https://badge.fury.io/js/plura)
 
 Super simple functional programming library
 
@@ -9,6 +9,10 @@ Super simple functional programming library
 ```
 npm install plura --save
 ```
+
+# Roadmap
+
+- monads...
 
 # Usage
 
@@ -36,7 +40,7 @@ Check tests for more usage information
 
 ## always
 
-### Syntax  
+### Syntax
 
 ```javascript
 const getTen = always(10) // >> function
@@ -53,7 +57,7 @@ Function and if executed get value
 
 ## ap
 
-### Syntax  
+### Syntax
 
 ```javascript
 ap([addTwo, minusOne], [1, 2, 3]) // >> [3, 4, 5, 0, 1, 2]
@@ -62,7 +66,7 @@ ap([addTwo, minusOne], [1, 2, 3]) // >> [3, 4, 5, 0, 1, 2]
 ### Parameters
 
 - fns
-  - array of functions 
+  - array of functions
 - values
   - array of values
 
@@ -70,11 +74,11 @@ ap([addTwo, minusOne], [1, 2, 3]) // >> [3, 4, 5, 0, 1, 2]
 
 Array of applied functions to a array of values
 
-## chain  
+## chain
 
-`Aka: flatMap`  
+`Aka: flatMap`
 
-### Syntax    
+### Syntax
 
 ```javascript
 chain(duplicate, [1, 2]) // >> [1, 1, 2, 2]
@@ -84,7 +88,7 @@ chain(duplicate, [1, 2]) // >> [1, 1, 2, 2]
 
 - fn
   - function to change values
-- array 
+- array
   - array to change
 
 ### Return value
@@ -93,7 +97,7 @@ Array
 
 ## compose
 
-### Syntax  
+### Syntax
 
 ```javascript
 const minusOneTimesTo = compose(timeTwo, minusOne)
@@ -113,7 +117,7 @@ Composed functions
 
 ## curry
 
-### Syntax  
+### Syntax
 
 ```javascript
 const addC = curry(add)
@@ -127,7 +131,7 @@ addC(1)(1, 1) // >> 3
 - fn
   - function you want to curry
 - arguments
-  - as many arguments needed to fulfill fn parameters 
+  - as many arguments needed to fulfill fn parameters
 
 ### Return value
 
@@ -135,13 +139,13 @@ Curry:ed function
 
 ## curryDestructed
 
-## Syntax  
+## Syntax
 
 ```javascript
 // add must have simple destruction! : no rest ... or nested destructions
 const add = ({ a, b, c}) => a + b + c
 
-const addC = curryObject(add)
+const addC = curryDestructed(add)
 addC({a: 1, b: 1, c: 1})     // >> 3
 addC({a: 1})({b: 1})({c: 1}) // >> 3
 addC({c: 1})({b: 1, a: 1})   // >> 3
@@ -152,7 +156,7 @@ addC({c: 1})({b: 1, a: 1})   // >> 3
 
   - function you want to curry
 - arguments
-  - as many arguments needed to fulfill fn parameters 
+  - as many arguments needed to fulfill fn parameters
 
 ### Return value
 
@@ -160,7 +164,7 @@ Curry:ed function
 
 ## curryObject
 
-### Syntax  
+### Syntax
 
 ```javascript
 // with object
@@ -193,7 +197,7 @@ addC({c: 1})({b: 1, a: 1})   // >> 3
 - fn
   - function you want to curry
 - arguments
-  - as many arguments needed to fulfill fn parameters 
+  - as many arguments needed to fulfill fn parameters
 
 ### Return value
 
@@ -201,7 +205,7 @@ Curry:ed function
 
 ## filter
 
-### Syntax  
+### Syntax
 
 ```javascript
 filter(isEven, [2, 3, 6]) // >> [2]
@@ -218,9 +222,9 @@ filter(isEven, [2, 3, 6]) // >> [2]
 
 Altred array
 
-## find  
+## find
 
-### Syntax    
+### Syntax
 
 ```javascript
 find(hasIdOfOne, [{ id: 10 }, { id: 1 }]) // >> { id: 1 }
@@ -230,7 +234,7 @@ find(hasIdOfOne, [{ id: 10 }, { id: 1 }]) // >> { id: 1 }
 
 - fn
   - function to evaluate values
-- array 
+- array
   - array to find value in
 - initailValue
   - optional
@@ -242,7 +246,7 @@ Any, found value
 
 ## isArray
 
-### Syntax  
+### Syntax
 
 ```javascript
 isArray([1, 2]) // >> true
@@ -259,7 +263,7 @@ Boolean
 
 ## isNumber
 
-### Syntax  
+### Syntax
 
 ```javascript
 isNumber(10) // >> true
@@ -277,7 +281,7 @@ Boolean
 
 ## isObject
 
-### Syntax  
+### Syntax
 
 ```javascript
 isObject({ x: 1 }) // >> true
@@ -294,7 +298,7 @@ Boolean
 
 ## isString
 
-### Syntax  
+### Syntax
 
 ```javascript
 isString('abc') // >> true
@@ -311,7 +315,7 @@ Boolean
 
 ## map
 
-### Syntax  
+### Syntax
 
 ```javascript
 map(addOne, [1, 2, 3]) // >> [2, 3, 4]
@@ -330,7 +334,7 @@ Altred array
 
 ## pipe
 
-### Syntax  
+### Syntax
 
 ```javascript
 const minusOneTimesTo = pipe(timeTwo, minusOne)
@@ -350,7 +354,7 @@ Composed functions
 
 ## reduce
 
-### Syntax  
+### Syntax
 
 ```javascript
 reduce(merge, 0, [2, 3, 6]) // >> 9
