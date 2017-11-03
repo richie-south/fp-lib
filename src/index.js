@@ -4,6 +4,7 @@ const pipe = compose.pipe
 const map = require('./map')
 const filter = require('./filter')
 const reduce = require('./reduce')
+const reduceObjIndexed = require('./reduceObjIndexed')
 const chain = require('./chain')
 const find = require('./find')
 const always = require('./always')
@@ -26,6 +27,7 @@ module.exports = {
   map,
   pipe,
   reduce,
+  reduceObjIndexed,
   curryObject,
   curryDestructed,
 }

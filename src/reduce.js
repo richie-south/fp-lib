@@ -24,8 +24,8 @@ const objectReduce = walkObject(
  * @param {Any} initialValue - initial value for fn
  * @param {Array||Object||string} collection - somthing to reduce over
  * @return {Any} _ - collection reduced by fn
- * @example 
- * 
+ * @example
+ *
  * const merge = (a, b) => a + b
  * const array = [1, 2, 3, 4]
  * const result = reduce(merge, 0, array)
