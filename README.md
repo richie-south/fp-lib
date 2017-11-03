@@ -36,6 +36,7 @@ Check tests for more usage information
 * [map](#map)
 * [pipe](#pipe)
 * [reduce](#reduce)
+* [reduceObjIndexed](#reduceobjindexed)
 
 
 ## always
@@ -366,8 +367,31 @@ reduce(merge, 0, [2, 3, 6]) // >> 9
   - function you want to apply on array elements
 - initialValue
   - start value for your reduce
-- array
-  - array to reduce over
+- array || object
+  - array || object to reduce over
+
+### Return value
+
+Any
+
+## reduceobjindexed
+
+### Syntax
+
+```javascript
+const addToArray = (a, [key, value]) => a.concat(key, value)
+
+reduceObjIndexed(addToArray, [], {x: 2, y: 4}) // >> ['x', 2, 'y', 4]
+```
+
+### Parameters
+
+- fn
+  - function you want to apply on array elements
+- initialValue
+  - start value for your reduce
+- object
+  - object to reduce over
 
 ### Return value
 
